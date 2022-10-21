@@ -55,6 +55,7 @@ jspm_packages/
 *.code-workspace
 *.codekit3
 .vscode
+.nvmrc
 
 # Compiled assets
 assets/*
