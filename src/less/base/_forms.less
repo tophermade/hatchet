@@ -1,0 +1,106 @@
+form{
+	margin: auto;
+	max-width: 780px;
+	
+	input[type="text"],
+	input[type="password"],
+	input[type="datetime"],
+	input[type="datetime-local"],
+	input[type="date"],
+	input[type="month"],
+	input[type="time"],
+	input[type="week"],
+	input[type="number"],
+	input[type="email"],
+	input[type="url"],
+	input[type="search"],
+	input[type="tel"],
+	select,
+	textarea {	
+		width: 100%;
+		height: 5rem;
+		border:0;
+		text-indent: 20px;
+		border-radius: 5px;
+		background-color: #fff;
+		border: 1px solid #ddd;
+		font-family: @main;
+
+		&:focus, &:active {
+		}
+		
+		&[disabled] {
+			&:focus, &:active {
+			}
+		}
+	}
+
+	select {
+		
+	}
+
+	textarea {
+		box-sizing: border-box;
+		min-height: 120px;
+		width: 100%;
+		padding: 15px 20px;
+		border:0;
+		text-indent: 0px;
+		border-radius: 5px;
+		background-color: #fff;
+		border: 1px solid #ddd;
+		font-family: @main;
+	}
+
+	input[type="checkbox"] {
+		
+	}
+
+	input[type="radio"] {
+		
+	}
+
+	input[type="submit"], input[type="button"], input[type="reset"], button {
+		border:0;
+		width: 100%;
+		max-width: 265px;
+		margin: auto;
+		cursor: pointer;
+	}
+
+	input[type="color"] {
+		
+	}
+
+	input[type="file"] {
+		
+	}
+
+	input[type="range"] {
+		
+	}
+
+	input[type="password"] {
+		letter-spacing: 0.3em;
+	}
+
+	::-webkit-input-placeholder {
+		//color: #fff;
+	}
+
+	::-moz-placeholder {
+		//color: #fff;
+	}
+
+	:-ms-input-placeholder {
+		//color: #fff;
+	}
+
+	:-moz-placeholder {
+		//color: #fff;
+	}
+
+	label{
+		font-weight: bold;
+	}
+}

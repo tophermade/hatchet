@@ -1,0 +1,51 @@
+// functions for responsivity
+.phablet(@rules){
+	@media screen and (min-width: @phablet){
+		@rules();
+	};
+};
+
+.tablet(@rules){
+	@media screen and (min-width: @tablet){
+		@rules();
+	};
+};
+
+.desktop(@rules){
+	@media screen and (min-width: @desktop){
+		@rules();
+	};
+};
+
+.ultra(@rules){
+	@media screen and (min-width: @ultra){
+		@rules();
+	};
+};
+
+// manual sized query
+.vp(@w, @rules) {
+	@media only screen and (min-width: @w) {
+		@rules();
+	};
+};
+
+// don't use for production maybe? idk only really useful on headings
+// trying out a single-line font-size declaration for all viewports
+// example: .fontSize(1.8, 2.2, 3.2);
+// returns rems
+.fontSize(@_base, @_tablet, @_desktop){
+	font-size: calc(@_base*1rem);
+	@media screen and (min-width: @tablet){
+		font-size: calc(@_tablet*1rem);
+	}
+	@media screen and (min-width: @desktop){
+		font-size: calc(@_desktop*1rem);
+	}
+}
+
+
+// mixins
+.indent{
+	text-indent: -9999em;
+}
