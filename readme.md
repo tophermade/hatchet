@@ -111,6 +111,6 @@ LESS can be used in compiled mode or in live reload mode. When in live reload, c
 ## Your .env
 The env supports the MODE flag with 3 different settings, `mvp`, `dev`, and `production`.
 
-*`mvp` When set to mvp, the compiled CSS will load after the inclusion of Andy Brewer's excellent [https://andybrewer.github.io/mvp/](MVP.CSS). MVP CSS will give you a set of base styles if you're throwing something up quickly, or even for a lean production site - see it in use on [https://imgy.dev](Imgy.dev).
-*`dev` When set to dev the compiled css is not loaded, and instead the LESS is loaded and compiled directly in the browser through the inclusion of the LESS.js file, with styles reloaded automatically. Make sure you have the developer console open in your browser.
-*`production` compiled CSS is loaded from assets.
+* `mvp` When set to mvp, the compiled CSS will load after the inclusion of Andy Brewer's excellent [https://andybrewer.github.io/mvp/](MVP.CSS). MVP CSS will give you a set of base styles if you're throwing something up quickly, or even for a lean production site - see it in use on [https://imgy.dev](Imgy.dev).
+* `dev` When set to dev the compiled css is not loaded, and instead the LESS is loaded and compiled directly in the browser through the inclusion of the LESS.js file, with styles reloaded automatically. Make sure you have the developer console open in your browser.
+* `production` compiled CSS is loaded from assets.
