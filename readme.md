@@ -15,7 +15,7 @@ You'll find that Hatchet
 
 ## Requirements
 * requires Node (or something like preprocess but that is untested)
-* requires ACF (free or pro) *note that fields are created not from the UI but within the theme for obvious reasons.
+* requires ACF (pro) *note that fields are created not from the UI but within the theme for obvious reasons.
 
 ## Getting Started
 Clone or download this repo in your `/wp-content/themes/` folder. Rename or not, as you choose. Rename `.envsample` to `.env`.
@@ -80,7 +80,7 @@ Have look at an example of a small component.
 }
 ````
 
-In this short example, you would create a folder inside `blocks/` named `announcement`, and inside it you would create the `setup.php`and `render.php` files, and then include this block inside `functions.php` under the `/blocks` section like so: `include_once('blocks/announcement/setup.php');`
+In this short example, you would create a folder inside `blocks/` named `announcement`, and inside it you would create the `setup.php`and `render.php` files. The `setup.php` file is automatically loaded by WordPress from the block's folder.
 
 Within `render.php` would be the html and function calls to ACF for display, `setup.php` would contain the setup of those ACF fields and their options, allowing the custom blocks to display within the Gutenberg editor when editing a Page.
 

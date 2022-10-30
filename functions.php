@@ -71,19 +71,6 @@ if ( ! function_exists( 'hatchet_setup' ) ) :
 				'script',
 			)
 		);
-
-		// Set up the WordPress core custom background feature.
-		// custom backgroud exampled commented out below
-		// add_theme_support(
-		// 	'custom-background',
-		// 	apply_filters(
-		// 		'hatchet_custom_background_args',
-		// 		array(
-		// 			'default-color' => 'ffffff',
-		// 			'default-image' => '',
-		// 		)
-		// 	)
-		// );
 	}
 endif;
 add_action( 'after_setup_theme', 'hatchet_setup' );
@@ -110,17 +97,15 @@ function hatchet_widgets_init() {
 add_action( 'widgets_init', 'hatchet_widgets_init' );
 
 
-
 //
 // Blocks 
 //
 $dir = new DirectoryIterator(__DIR__ ."/blocks/");
 foreach ($dir as $item) {
 	if ($item->isDir() && !$item->isDot()) {
-		// include_once('blocks/'.$item->getFilename().'/setup.php');
+		include_once('blocks/'.$item->getFilename().'/setup.php');
 	}
 }
-include_once('blocks/example/setup.php');
 
 
 // 
@@ -153,27 +138,6 @@ function enable_page_excerpt() {
 	add_post_type_support('page', array('excerpt'));
 }
 add_action('init', 'enable_page_excerpt');
-
-// 
-// Manual block registration example
-//
-// add_action('acf/init', 'my_acf_init_block_types');
-// function my_acf_init_block_types() {
-// 	if( function_exists('acf_register_block_type') ) {
-		
-// 		// register intro block.
-// 		acf_register_block_type(array(
-// 			'name'              => 'intro',
-// 			'title'             => __('Introduction'),
-// 			'description'       => __('Page intriduction block.'),
-// 			'render_template'   => 'blocks/example/render.php',
-// 			'category'          => 'formatting',
-// 			'keywords'          => array( 'intro', 'introduction' ),
-// 		));
-
-// 	}
-// }
-
 
 
 // 
@@ -233,42 +197,3 @@ add_action( 'wp_print_styles', 'wps_deregister_styles', 100 );
 function wps_deregister_styles() {
 	wp_dequeue_style( 'wp-block-library' );
 }
-
-
-// 
-// Dev Functions
-// 
-// if($mode == 'dev'){ 
-// 	this modifies the LESS rel= if a LESS stylesheet is included.
-// 	function my_style_loader_tag_filter($html, $handle) {
-// 		if ($handle === 'less-style') {
-// 			return str_replace("rel='stylesheet'",
-// 				"rel='stylesheet/less'", $html);
-// 		}
-// 		return $html;
-// 	}
-// 	add_filter('style_loader_tag', 'my_style_loader_tag_filter', 10, 2);
-
-// 	this parses the HTML right before it is sent to the client,
-// 	adding the live site's url to image tags as a fallback, 
-// 	if that image isn't found on the build. it will also log a 
-// 	notice to the browser in the console for each image it 
-// 	replaces. this is useful when a massive media library is 
-// 	impractical to store locally
-// 	this is a heavy load, so uncomment only if necessary
-// 	function callback($buffer){
-// 		$page = new DOMDocument();
-// 		$page->loadHTML($buffer);
-// 		$tags = $page->getElementsByTagName('img');
-// 		foreach ($tags as $tag) {
-// 			$oldSrc = $tag->getAttribute('src');
-// 			$liveUrl = preg_replace("/(http|https):\/\/(?:.*?)\/wp-content\//i", "$1://". LIVEDOMAIN ."/wp-content/", $oldSrc);
-// 			$tag->setAttribute('onerror', "this.onerror=null; console.log('Replaced a missing local src with a live src: ". $liveUrl ." '); this.src='". $liveUrl ."';");
-// 		}
-// 		return $page->saveHTML();
-// 	}
-// 	function buffer_start() { ob_start("callback"); }
-// 	function buffer_end() { ob_end_flush(); }
-// 	add_action('wp_head', 'buffer_start');
-// 	add_action('wp_footer', 'buffer_end');
-// }
