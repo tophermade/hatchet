@@ -114,7 +114,13 @@ add_action( 'widgets_init', 'hatchet_widgets_init' );
 //
 // Blocks 
 //
-// include_once('blocks/example/setup.php');
+$dir = new DirectoryIterator(__DIR__ ."/blocks/");
+foreach ($dir as $item) {
+	if ($item->isDir() && !$item->isDot()) {
+		// include_once('blocks/'.$item->getFilename().'/setup.php');
+	}
+}
+include_once('blocks/example/setup.php');
 
 
 // 
